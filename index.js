@@ -4,7 +4,7 @@ const inquirer= require("inquirer")
 const fs =require("fs")
 const util = require("util")
 
-const writeFileAsync = util.promisify(fs.writeFile )
+const writeFileAsync = util.promisify(fs.writeFile)
 
 
 
@@ -29,25 +29,65 @@ function promptUser() {
            "None"
        ],
        name:"license" 
-    }
+    },
+    {
+        type: "input",
+        message: "What do you need to install for this project?",
+        name: "Installation"
+    },
+    {
+        type: "input",
+        message: "What do you use this project for?",
+        name: "Usage"
+    },
+    {
+        type: "input",
+        message: "Did you have anyone collaborate on this project with you?",
+        name: "Contributing"
+    },
+    {
+        type: "input",
+        message: "Do you have any questions about this project?",
+        name: "Questions"
+    },
+    {
+        type: "input",
+        message: "What type of testing have you done?",
+        name: "Tests"
+    },
 ])
 };
 
 // function to initialize program
 function generateMarkdownLang(response){
     return `
-    # ${response.title}
-    # Table of Contents
-    
-    -[Description](#description)
-    -[License](#license)
+# ${response.title}
+# Table of Contents
 
-    ## Description:
-    ${response.description}
+-[Description](#description)
+-[License](#license)
 
-    ## License:
-    ${response.license}
-    `
+## Description:
+${response.description}
+
+## License:
+${response.license}
+
+## Response
+${response.Installation}
+
+## Usage
+${response.Usage}
+
+## Contributing
+${response.Contributing}
+
+## Questions
+${response.Questions}
+
+## Tests
+${response.Tests}
+`
 };
 
 
