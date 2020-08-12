@@ -61,19 +61,10 @@ function promptUser() {
 // function to initialize program
 function generateMarkdownLang(response){
     return `
-# ${response.title}
+# ${response.title} 
 # Table of Contents
 
--[Description](#description)
--[License](#license)
-
-## Description:
-${response.description}
-
-## License:
-${response.license}
-
-## Response
+## Installation
 ${response.Installation}
 
 ## Usage
@@ -87,6 +78,11 @@ ${response.Questions}
 
 ## Tests
 ${response.Tests}
+
+-[Description](#description)
+-[License](#license)
+[![License: Unlicense]
+(https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
 `
 };
 
